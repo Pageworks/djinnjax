@@ -1,0 +1,52 @@
+{
+    "name": "djinnjax",
+    "version": "0.1.0",
+    "author": "Pageworks",
+    "license": "GPL-3.0",
+    "keywords": [
+        "pjax-navigation"
+    ],
+    "main": "./dist/djinnjax.js",
+    "scripts": {
+        "prettier": "prettier --write \"src/**/*.ts\"",
+        "eslint": "eslint -c .eslintrc.js src/**/*.ts",
+        "lint": "npm run prettier && npm run eslint",
+        "cleanup": "node ./cleanup.js",
+        "compile": "npm run cleanup && tsc",
+        "prerelease": "npm run cleanup && npm run prettier && npm run eslint && tsc",
+        "tsc": "tsc",
+        "docs": "docs",
+        "predeploy": "docs -o ./public -c ./CNAME",
+        "deploy": "node ./deploy.js"
+    },
+    "devDependencies": {
+        "@codewithkyle/dev-docs": "^0.1.13",
+        "@typescript-eslint/eslint-plugin": "^2.34.0",
+        "@typescript-eslint/parser": "^2.34.0",
+        "dotenv": "^8.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "gh-pages": "^3.1.0",
+        "prettier": "1.19.1",
+        "rimraf": "^3.0.2",
+        "typescript": "^3.9.6"
+    },
+    "devDocs": {
+        "name": "Djinnjax",
+        "links": [
+            {
+                "label": "GitHub",
+                "url": "https://github.com/Pageworks/djinnjax"
+            },
+            {
+                "label": "NPM",
+                "url": "https://www.npmjs.com/package/djinnjax"
+            },
+            {
+                "label": "DjinnJS Framework",
+                "url": "https://github.com/Pageworks/djinnjs"
+            }
+        ]
+    }
+}
