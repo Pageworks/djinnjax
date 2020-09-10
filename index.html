@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Readme</title>
+
+        <link href="/normalize.css" rel="stylesheet" />
+        <link href="/reset.css" rel="stylesheet" />
+        <link href="/brixi.css" rel="stylesheet" />
+        <link href="/base.css" rel="stylesheet" />
+
+        <script defer src="/prism.js"></script>
+        <link href="/prism.css" rel="stylesheet" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+        <script defer src="/nav.js"></script>
+        <script defer src="/page-jump-generator.js"></script>
+    </head>
+    <body>
+        <main>
+            <aside><nav><a href="/" class="project-name">Djinnjax</a><a href="https://github.com/Pageworks/djinnjax"><span>GitHub</span></a><a href="https://www.npmjs.com/package/djinnjax"><span>NPM</span></a><a href="https://github.com/Pageworks/djinnjs"><span>DjinnJS Framework</span></a><header>Documents</header><a href="/readme" data-slug="/readme"><span>readme</span></a></nav></aside>
+            <article><h1 id="djinnjax">Djinnjax</h1>
+<p>Djinnjax is a peer NPM package for the <a href="https://djinnjs.com">DjinnJS</a> package. When installed Djinnjax provides Pjax navigation for server-side rendered websites and web applications.</p>
+<p>Pjax is a term used when referring to the hijacking of traditional page navigation within a project where only one HTTP request is used to load the initial page. Additional page requests are loaded using AJAX and the content of the page is dynamically swapped.</p>
+<p>Pages are prefetched and stored in the offline cache when users have a 4g connection and they're not using data-saver mode.</p>
+<p>Pjax will hijack the <code>click</code> event of all HTML Anchor Element within the DOM.</p>
+<h2 id="preventingpjax">Preventing Pjax</h2>
+<p>When Pjax shouldn't hijack a link use one of the following methods:</p>
+<ol>
+<li>Give the element a <code>no-pjax</code> class</li>
+<li>Give the element a <code>target</code> attribute</li>
+<li>Give the element a <code>no-pjax</code> attribute</li>
+</ol>
+<pre><code class="html language-html">&lt;a href="https://example.com/" target="_blank" no-pjax class="no-pjax"&gt;Click Here&lt;/a&gt;
+</code></pre>
+<h2 id="hotswappingviews">Hotswapping Views</h2>
+<p>By default Pjax swaps the documents <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">main element</a>. Sometimes only one element within the <code>&lt;main&gt;</code> element needs to be swapped, when this happens tag the element that should be swapped with a <code>pjax-id</code> attribute then the anchor element with a matching <code>pjax-view-id</code> attribute. When a link with a <code>pjax-view-id</code> attribute value matches an element with a <code>pjax-id</code> attribute value only the content within the element is swapped.</p>
+<p>In the example below only the content with the <code>&lt;div&gt;</code> will be swapped when a user clicks the Example Category link.</p>
+<pre><code class="html language-html">&lt;div pjax-id="blog-articles"&gt;
+    ...snip...
+&lt;/div&gt;
+&lt;a href="https://example.com/blog?category=example" pjax-view-id="blog-articles"&gt;Example Category&lt;/a&gt;
+</code></pre>
+<h2 id="manualnavigation">Manual Navigation</h2>
+<p>Pjax can be told to change pages using a custom event dispatched on the document.</p>
+<pre><code class="javascript language-javascript">const event = new CustomEvetn("pjax:load", {
+    details: {
+        url: "/page/to/load",
+    },
+});
+document.dispatchEvent(event);
+</code></pre></article>
+        </main>
+    </body>
+</html>
