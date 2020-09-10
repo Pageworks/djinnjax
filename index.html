@@ -21,12 +21,14 @@
     </head>
     <body>
         <main>
-            <aside><nav><a href="/" class="project-name">Djinnjax</a><a href="https://github.com/Pageworks/djinnjax"><span>GitHub</span></a><a href="https://www.npmjs.com/package/djinnjax"><span>NPM</span></a><a href="https://github.com/Pageworks/djinnjs"><span>DjinnJS Framework</span></a><header>Documents</header><a href="/readme" data-slug="/readme"><span>readme</span></a></nav></aside>
+            <aside><nav><a href="/" class="project-name">Djinnjax</a><a href="https://github.com/Pageworks/djinnjax"><span>GitHub</span></a><a href="https://www.npmjs.com/package/djinnjax"><span>NPM</span></a><a href="https://github.com/Pageworks/djinnjs"><span>DjinnJS</span></a><header>Documents</header><a href="/readme" data-slug="/readme"><span>readme</span></a></nav></aside>
             <article><h1 id="djinnjax">Djinnjax</h1>
 <p>Djinnjax is a peer NPM package for the <a href="https://djinnjs.com">DjinnJS</a> package. When installed Djinnjax provides Pjax navigation for server-side rendered websites and web applications.</p>
-<p>Pjax is a term used when referring to the hijacking of traditional page navigation within a project where only one HTTP request is used to load the initial page. Additional page requests are loaded using AJAX and the content of the page is dynamically swapped.</p>
-<p>Pages are prefetched and stored in the offline cache when users have a 4g connection and they're not using data-saver mode.</p>
-<p>Pjax will hijack the <code>click</code> event of all HTML Anchor Element within the DOM.</p>
+<p>Pjax is a term used when referring to the hijacking of traditional page navigation within a project where only one HTTP request is used to load the initial page. Additional page requests are loaded using AJAX and the content of the page is dynamically swapped. Pages are prefetched and stored in the offline cache when users have a 4g connection and they're not using data-saver mode. Pjax will hijack the <code>click</code> event of all HTML Anchor Element within the DOM.</p>
+<h2 id="installation">Installation</h2>
+<p>Download from NPM:</p>
+<pre><code class="sh language-sh">npm i -S djinnjax
+</code></pre>
 <h2 id="preventingpjax">Preventing Pjax</h2>
 <p>When Pjax shouldn't hijack a link use one of the following methods:</p>
 <ol>
