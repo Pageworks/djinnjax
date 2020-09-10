@@ -2,11 +2,15 @@
 
 Djinnjax is a peer NPM package for the [DjinnJS](https://djinnjs.com) package. When installed Djinnjax provides Pjax navigation for server-side rendered websites and web applications.
 
-Pjax is a term used when referring to the hijacking of traditional page navigation within a project where only one HTTP request is used to load the initial page. Additional page requests are loaded using AJAX and the content of the page is dynamically swapped.
+Pjax is a term used when referring to the hijacking of traditional page navigation within a project where only one HTTP request is used to load the initial page. Additional page requests are loaded using AJAX and the content of the page is dynamically swapped. Pages are prefetched and stored in the offline cache when users have a 4g connection and they're not using data-saver mode. Pjax will hijack the `click` event of all HTML Anchor Element within the DOM.
 
-Pages are prefetched and stored in the offline cache when users have a 4g connection and they're not using data-saver mode.
+## Installation
 
-Pjax will hijack the `click` event of all HTML Anchor Element within the DOM.
+Download from NPM:
+
+```sh
+npm i -S djinnjax
+```
 
 ## Preventing Pjax
 
