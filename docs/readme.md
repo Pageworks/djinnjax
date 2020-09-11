@@ -18,7 +18,7 @@ When Pjax shouldn't hijack a link when using the `opt-out` prefetching strategy 
 
 1. Give the link the `target="_blank"` attribute
 1. Give the link the `download` attribute
-1. Give the link the `prevent-prefetch` attribute
+1. Give the link the `disable-prefetch` attribute
 
 When Pjax should hijack a link when using the `opt-in` prefetching strategy give the link a `prefetch` attribute.
 
@@ -26,7 +26,7 @@ When Pjax should hijack a link when using the `opt-in` prefetching strategy give
 <!-- Using the default opt-out strategy -->
 <a href="https://example.com/" target="_blank">Click Here</a>
 <a href="https://example.com/" download>Click Here</a>
-<a href="https://example.com/" prevent-prefetch>Click Here</a>
+<a href="https://example.com/" disable-prefetch>Click Here</a>
 
 <!-- Using the opt-in strategy -->
 <a href="https://example.com/" prefetch>Click Here</a>

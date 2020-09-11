@@ -284,14 +284,6 @@ export class Djinnjax {
         });
     };
 
-    /**
-     * Collect all anchor elements with a `href` attribute and add a click event listener.
-     * Ignored links are:
-     * - any link with a `no-pjax` attribute
-     * - any link with a `no-pjax` class
-     * - any link with a `target` attribute
-     * - any link with a `download` attribute
-     */
     private collectLinks(): void {
         let query = "a[href]";
         switch (prefetching) {
