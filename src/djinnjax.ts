@@ -64,7 +64,7 @@ export class Djinnjax {
             this.swapPjaxContent(e.detail.requestUid);
         });
         document.addEventListener("pjax:init", () => {
-            this.worker = new Worker(`${location.origin}/${djinnjsOutDir}/pjax-worker.mjs`);
+            this.worker = new Worker(`${location.origin}/${djinnjsOutDir}/djinnjax-worker.mjs`);
             this.worker.onmessage = this.handleWorkerMessage.bind(this);
             if (useServiceWorker && typeof navigator.serviceWorker !== "undefined") {
                 this.serviceWorker = navigator.serviceWorker.controller;
