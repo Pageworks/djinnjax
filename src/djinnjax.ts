@@ -2,7 +2,7 @@
 import { env, uid } from "djinnjs/env";
 import { sendPageView, setupGoogleAnalytics } from "./gtags.js";
 // @ts-ignore
-import { gaId, followRedirects, doPrefetching, pageJumpOffset, djinnjsOutDir, useServiceWorker } from "djinnjs/config";
+import { gaId, followRedirects, prefetching, pageJumpOffset, djinnjsOutDir, useServiceWorker } from "djinnjs/config";
 
 interface PjaxState {
     activeRequestUid: string;
@@ -293,14 +293,24 @@ export class Djinnjax {
      * - any link with a `download` attribute
      */
     private collectLinks(): void {
-        const unregisteredLinks = Array.from(document.body.querySelectorAll("a[href]:not([pjax-tracked]):not([no-pjax]):not([target]):not(.no-pjax):not([download])"));
+        let query = "a[href]";
+        switch (prefetching) {
+            case "opt-in":
+                query += "[prefetch]";
+                break;
+            default:
+                query += ":not([disable-prefetch])";
+                break;
+        }
+        query += `:not([pjax-tracked]):not([target="_blank"]):not([download])`;
+        const unregisteredLinks = Array.from(document.body.querySelectorAll(query));
         if (unregisteredLinks.length) {
             unregisteredLinks.map((link: HTMLAnchorElement) => {
                 link.setAttribute("pjax-tracked", "true");
                 link.addEventListener("click", this.handleLinkClick);
 
                 /** Require at least a 3g connection & respect the users data saver setting */
-                if (doPrefetching && env.connection !== "2g" && env.connection !== "slow-2g" && !env.dataSaver) {
+                if (env.connection !== "2g" && env.connection !== "slow-2g" && !env.dataSaver) {
                     link.addEventListener("mouseenter", this.handleLinkPrefetch);
                 }
             });

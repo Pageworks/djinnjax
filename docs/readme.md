@@ -12,16 +12,24 @@ Download from NPM:
 npm i -S djinnjax
 ```
 
-## Preventing Pjax
+## Prefetching
 
-When Pjax shouldn't hijack a link use one of the following methods:
+When Pjax shouldn't hijack a link when using the `opt-out` prefetching strategy use one of the following methods:
 
-1. Give the element a `no-pjax` class
-1. Give the element a `target` attribute
-1. Give the element a `no-pjax` attribute
+1. Give the link the `target="_blank"` attribute
+1. Give the link the `download` attribute
+1. Give the link the `prevent-prefetch` attribute
+
+When Pjax should hijack a link when using the `opt-in` prefetching strategy give the link a `prefetch` attribute.
 
 ```html
-<a href="https://example.com/" target="_blank" no-pjax class="no-pjax">Click Here</a>
+<!-- Using the default opt-out strategy -->
+<a href="https://example.com/" target="_blank">Click Here</a>
+<a href="https://example.com/" download>Click Here</a>
+<a href="https://example.com/" prevent-prefetch>Click Here</a>
+
+<!-- Using the opt-in strategy -->
+<a href="https://example.com/" prefetch>Click Here</a>
 ```
 
 ## Hotswapping Views
