@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2020-09-?
+
+### Added
+
+-   support for the new `opt-out` and `opt-in` prefetching strategies
+
 ### Fixed
 
 -   Web Worker filename
@@ -23,5 +29,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     -   `pjax:continue`
 
 [unreleased]: https://github.com/pageworks/djinnjs/compare/master...develop
-[0.1.1]: https://github.com/pageworks/djinnjs/compare/v0.1.0...v0.1.1
+[0.2.0]: https://github.com/pageworks/djinnjs/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/pageworks/djinnjs/releases/tag/v0.1.0
